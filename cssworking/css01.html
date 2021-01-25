@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Css选择器系列一 | ISAS Developers</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="One Piece">
+    
+    <link rel="preload" href="/marablog/assets/css/0.styles.be6de1bd.css" as="style"><link rel="preload" href="/marablog/assets/js/app.638360d9.js" as="script"><link rel="preload" href="/marablog/assets/js/2.c771509e.js" as="script"><link rel="preload" href="/marablog/assets/js/8.85286148.js" as="script"><link rel="prefetch" href="/marablog/assets/js/3.4cce4ac4.js"><link rel="prefetch" href="/marablog/assets/js/4.9ef5a331.js"><link rel="prefetch" href="/marablog/assets/js/5.cb600e9e.js"><link rel="prefetch" href="/marablog/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/marablog/assets/js/7.00a4336d.js"><link rel="prefetch" href="/marablog/assets/js/9.0e96434e.js">
+    <link rel="stylesheet" href="/marablog/assets/css/0.styles.be6de1bd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/marablog/" class="home-link router-link-active"><!----> <span class="site-name">ISAS Developers</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/marablog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/marablog/cssworking/css01.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  cssworking
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/marablog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/marablog/cssworking/css01.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  cssworking
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/marablog/cssworking/css01.html" aria-current="page" class="active sidebar-link">Css选择器系列一</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/marablog/cssworking/css01.html#选择符、选择器优先级、选择器作用域" class="sidebar-link">选择符、选择器优先级、选择器作用域</a></li><li class="sidebar-sub-header"><a href="/marablog/cssworking/css01.html#元素选择器" class="sidebar-link">元素选择器</a></li></ul></li><li><a href="/marablog/cssworking/css02.html" class="sidebar-link">CSS中的函数与变量</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="你真的会css吗-css选择器系列一"><a href="#你真的会css吗-css选择器系列一" class="header-anchor">#</a> 你真的会CSS吗？[Css选择器系列一]</h1> <h2 id="选择符、选择器优先级、选择器作用域"><a href="#选择符、选择器优先级、选择器作用域" class="header-anchor">#</a> 选择符、选择器优先级、选择器作用域</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 后代关系 */</span>
+<span class="token selector">.box div</span> <span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token comment">/* 父子关系 */</span>
+<span class="token selector">.box &gt; div</span> <span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token comment">/* 相邻兄弟关系 */</span>
+<span class="token selector">.box + div</span> <span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token comment">/* 兄弟关系 */</span>
+<span class="token selector">.box ~ div</span> <span class="token punctuation">{</span><span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>以上四种是我们在编写CSS样式文件中常见的选择符，除此之外还有双管道符 <code>||</code> 和管道符 <code>|</code> ，相关知识内容个人理解不太用的到，此处不做阐述。</p></blockquote> <h3 id="选择器作用域"><a href="#选择器作用域" class="header-anchor">#</a> 选择器作用域</h3> <ul><li>选择器的作用域除基本是全局作用域的，即网页的样式呈现只关乎CSS代码的作用顺序，无关元素本身顺序。</li> <li>除此之外，现如今CSS选择器是有局部作用域概念的，如Vue文件中的 <code>&lt;style scoped&gt;</code></li></ul> <h3 id="选择器优先级"><a href="#选择器优先级" class="header-anchor">#</a> 选择器优先级</h3> <table><thead><tr><th>优先级</th> <th>权重（计算时数值表示）</th></tr></thead> <tbody><tr><td>通配符、选择符、逻辑组合伪类</td> <td>0</td></tr> <tr><td>元素选择器</td> <td>1</td></tr> <tr><td>类名选择器、属性选择器、伪类</td> <td>10</td></tr> <tr><td>ID选择器</td> <td>100</td></tr> <tr><td>style内联样式</td> <td>-</td></tr> <tr><td>!important</td> <td>-</td></tr></tbody></table> <blockquote><p>Tips：</p> <ul><li>只有逻辑组合伪类 <code>:not()</code></li> <li>使用权重计算，利于样式重置，同时由于<code>!important</code> 权重过高，且能够重置Javascript修改的样式，不建议使用，避免引起的混乱</li> <li>style内联样式则用于需要临时进行修改的地方，或者当样式文件重置时比较麻烦时可修改html代码</li> <li>关于样式重置时，同样的选择器复制粘贴到样式文件末尾不起作用时，可利用重复选择器本身来提高选择器权重，例如：
+<code>.box.box div {background: #f99;}</code></li></ul></blockquote> <h3 id="选择符"><a href="#选择符" class="header-anchor">#</a> 选择符</h3> <blockquote><p>选择符，常用的其实不难理解，但是我们在查看一些UI框架，如 <a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener noreferrer">ElementUI<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>、<a href="https://www.antdv.com/docs/vue/introduce-cn/" target="_blank" rel="noopener noreferrer">AntDesignVue<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>、<a href="https://www.layui.com/doc/" target="_blank" rel="noopener noreferrer">LayUI<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 等，会从中发现一些值得学习的地方，对于选择符的利用可以巧妙的解决一些需要特例化的样式。</p></blockquote> <h4 id="后代选择符【空格】-与子选择符【右键头】"><a href="#后代选择符【空格】-与子选择符【右键头】" class="header-anchor">#</a> 后代选择符【空格】（  ）与子选择符【右键头】（ &gt; ）</h4> <p>子选择符只会匹配当前元素的第一（个）代子元素，后代选择符则匹配所有子元素</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>#f99<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>#f99<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>#333<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+
+ul li {background:#333;}  // ul内所有子级li的背景色#333
+ul &gt; li {background:#f99;} // ul内第一子级的li的背景色#f99
+</code></pre></div><blockquote><p>Tips：</p> <p>子选择符适用于结构固定不变的场景，对于熟悉程度来说，还是尽量使用后代选择符来解决。</p></blockquote> <h4 id="相邻兄弟选择符【加号】-与兄弟选择符【波浪号】"><a href="#相邻兄弟选择符【加号】-与兄弟选择符【波浪号】" class="header-anchor">#</a> 相邻兄弟选择符【加号】（+）与兄弟选择符【波浪号】（~）</h4> <p>相邻兄弟选择符仅匹配当前元素后的第一个同级兄弟元素，兄弟选择符则匹配其后的所有同级兄弟元素<br>对于前端项目中或UI框架中常见的单选/复选框的变化，则使用“+”居多，且便捷。<br>实际代码参考：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.el-checkbox.is-bordered+.el-checkbox.is-bordered</span> <span class="token punctuation">{</span><span class="token property">margin-left</span><span class="token punctuation">:</span> 10px<span class="token punctuation">}</span>
+
+<span class="token selector">.radio</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span>15px<span class="token punctuation">;</span> <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;]</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;] + .radio-label</span> <span class="token punctuation">{</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;] + .radio-label:before</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #bac4d0<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> all 250ms ease<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all 250ms ease<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;]:checked + .radio-label:before</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #4399ff<span class="token important">!important</span><span class="token punctuation">;</span><span class="token property">box-shadow</span><span class="token punctuation">:</span> inset 0 0 0 2px #ffffff<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;]:focus + .radio-label:before</span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token property">border-color</span><span class="token punctuation">:</span> #bac4d0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;]:disabled + .radio-label:before</span> <span class="token punctuation">{</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> inset 0 0 0 2px #ffffff<span class="token punctuation">;</span><span class="token property">border-color</span><span class="token punctuation">:</span> #b4b4b4<span class="token punctuation">;</span><span class="token property">background</span><span class="token punctuation">:</span> #b4b4b4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.radio input[type=&quot;radio&quot;] + .radio-label:empty:before</span> <span class="token punctuation">{</span><span class="token property">margin-right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>Tips：</p> <p>CSS样式文件的解析顺序是从上至下来进行的，因此，我们在实际项目中可以进行重置改写，同时CSS选择器是没有向前选择的选择符，这样也是避免浏览器渲染后界面又发生大幅度变化
+body，html的样式改写也应当在整个CSS文件最顶部，不要夹杂在中间，会很不规范，也有可能出现闪屏的问题</p></blockquote> <h2 id="元素选择器"><a href="#元素选择器" class="header-anchor">#</a> 元素选择器</h2> <ul><li>元素选择器本身不能像类选择器那样重复</li> <li>搭配属性选择器使用时元素选择器必须前置书写</li></ul> <blockquote><p>Tips：</p> <ul><li>元素选择器不区分大小写，尽管我们在Eslint代码后可能警告是因为其不规范，所以我们的样式文件中尽量都是小写字母，包括在元素的class命名及样式的属性值时也尽量合理使用小写字母，如同一份样式文件中，颜色值应尽量统一小写#fff等。</li> <li>自定义元素<code>&lt;x-ele&gt;&lt;/x-ele&gt;</code>，现代浏览器是支持的，即Html5中的语义化标签，自定义标签可能更符合应用场景，但是由于项目需要兼容IE，一直没有实践的机会。书中了解到，自定义元素兼容IE8，需要在<code>&lt;head&gt;</code>内添加一段Javascript代码，<code>&lt;script&gt;document.createElement('x-ele');&lt;/script&gt;</code></li> <li>个人理解：现在许多项目利用前端框架，Vue/React等，对于IE是不兼容到低版本的，而且创建过多的自定义元素也需要添加许多Javascript代码，有些不太现实。</li></ul></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">1/14/2021, 5:25:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/marablog/cssworking/css02.html">
+        CSS中的函数与变量
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/marablog/assets/js/app.638360d9.js" defer></script><script src="/marablog/assets/js/2.c771509e.js" defer></script><script src="/marablog/assets/js/8.85286148.js" defer></script>
+  </body>
+</html>
